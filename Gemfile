@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.3"
 
 gem "rails",           "7.0.4.3"
+gem "image_processing",           "1.12.2"
+gem "active_storage_validations",  "0.9.8"
 gem "bcrypt",          "3.1.18"
 gem "faker",           "2.21.0"
 gem "will_paginate",           "3.3.1"
@@ -19,9 +21,14 @@ gem "puma",            "5.6.8"
 gem "bootsnap",        "1.16.0", require: false
 gem "sqlite3",         "1.6.1"
 
+group :production do
+  gem "aws-sdk-s3", "1.114.0", require: false
+end
 group :development, :test do
   gem "debug",   "1.7.1", platforms: %i[ mri mingw x64_mingw ]
 end
+
+
 
 group :development do
   gem "web-console",         "4.2.0"
